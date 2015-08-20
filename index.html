@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<script type='text/javascript' src='jquery-2.1.4.min.js'></script>
+<script type='text/javascript' src='knockout-3.3.0.js'></script>
+<script type='text/javascript' src='viewModel.js'></script>
+<script>
+</script>
+
+<title>Single Page</title>
+</head>
+
+<body>
+
+<h2>Your seat reservations</h2>
+
+<table>
+    <thead><tr>
+        <th>Passenger name</th><th>Meal</th><th>Surcharge</th><th></th>
+    </tr></thead>
+    <!-- Todo: Generate table body -->
+    <tbody data-bind="foreach: seats">
+    <tr>
+        <td><input data-bind="value: name" /></td>
+        <td><select data-bind="options: $root.availableMeals, value: meal, optionsText: 'mealName'"></select></td>
+        <td data-bind="text: formattedPrice"></td>
+    </tr>    
+</tbody>
+</table>
+<button data-bind="click: addSeat">Reserve another seat</button>
+
+</body>
+
+</html>
