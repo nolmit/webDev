@@ -10,12 +10,12 @@
 <body>
 	<h3>Set person data</h3>
 Gender:
-	<select name="gnd" data-bind="options: gender"></select>
+	<select id="gnd" data-bind="options: gender"></select>
 	<br><br>
 Bday:
-	<input type="date" name="bday">
+	<input type="date" id="bday">
 	<br><br>
-	<input type="submit" value="Calculate">
+	<input type="submit" value="Calculate" data-bind="click: CalculateVariableBasedPart">
 	<br><br>
 	<span data-bind="text:cnp"></span>
 </body>
