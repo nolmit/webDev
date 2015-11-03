@@ -1,8 +1,10 @@
 
 function CnpViewModel(){
 	var self = this;
-	self.gender = ko.observable(['male','female']);	
-	self.cnp = ko.computed(CalculateCnp);
+	self.gender = ['male','female'];
+	self.gvalue = ko.observable();
+	self.gvalue.subscribe(function(newVal){CalculateVariableBasedPart(newVal);});
+	self.cnp = ko.observable();
 
 }
 
@@ -11,16 +13,23 @@ function CalculateCnp(){
 
 }
 
-function CalculateVariableBasedPart(){
-	var gender = $("#gnd").val();
-	var bdt = $("#bday").val();
+function CalculateVariableBasedPart(gender){
+	var bdt = $('#bday').datepicker({ dateFormat: 'dd-mm-yy' }).val();
 	return gender+bdt;
 }
 
+function SetDataPicker(){
+	$.datepicker.setDefaults(
+    $.datepicker.regional[ '' ]);
+	$('#bday').datepicker();
+	$('#bday').datepicker("setDate",'today');
+
+}
 
 
-$( document ).ready(function() {
-	var d = new Date();
-	$('#bday').val(d.getMonth()+"/"+d.getDate()+"/"+d.getFullYear());
+$(document).ready(function() {
+	//$('#bday').val(d.getMonth()+"/"+d.getDate()+"/"+d.getFullYear(
+	SetDataPicker();
    ko.applyBindings(new CnpViewModel());
+   
 });

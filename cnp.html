@@ -2,18 +2,20 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<script type='text/javascript' src='jquery-2.1.4.min.js'></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 <script type='text/javascript' src='knockout-3.3.0.js'></script>
 <script type='text/javascript' src='cnpViewModel.js'></script>
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
 </head>
 
 <body>
 	<h3>Set person data</h3>
 Gender:
-	<select id="gnd" data-bind="options: gender"></select>
+	<select id="gnd" data-bind="options: gender, value: gvalue"></select>
 	<br><br>
 Bday:
-	<input type="date" id="bday">
+	<input type="text" id="bday">
 	<br><br>
 	<input type="submit" value="Calculate" data-bind="click: CalculateVariableBasedPart">
 	<br><br>
